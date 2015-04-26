@@ -1,34 +1,13 @@
 import sys
 import numpy as np
-from parser import *
-
-def main(args=None):
-    if args is None:
-        args = sys.argv
-
-    if len(args) != 3:
-        print "Usage:"
-        print "cky.py <grammar file> <sentence>"
-
-    else:
-        R, NT, T, Gt, GT, valid = parse_cnf(open(args[1]))
-
-        if valid:
-            #print (R, NT, T, Gt, GT)
-            if cky(R, NT, T, Gt, GT, args[2].split(" ")):
-                print "%s is member of the language"%args[2]
-            else:
-                print "%s is not member of the language"%args[2]
-
-
+from greader import *
 
 
 ###############################################################
 #### CKY ALGORITHM
 ###############################################################
 #Pseudocode from wikipedia
-def cky(Roots, NT, T, Gt, GT, words):
-    print Gt
+def cky(Roots, NT, T, Gt, GT, words, show_table=False):
     #The input string s consist of n letters, a1... an.
     n = len(words)
     #The grammar contain r terminal and nonterminal symbols R1... Rr.
@@ -60,8 +39,7 @@ def cky(Roots, NT, T, Gt, GT, words):
     # if any of P[n,1,x] is true (x is iterated over the set s, where s are all the indices for Rs) then
     #   Then string is member of language
     #   Else string is not member of language
-    print P
-    display_table(P, T, NT, words)
+    if show_table: display_table(P, T, NT, words)
     for r in Roots:
         j = NT.index(r)
         if P[n-1,0,j] == 1: return True
@@ -95,7 +73,4 @@ def display_table(P, T, NT, words):
         print ' '.join([("%-*s" % (padding, cells[i])) for i in range(i*d[0], (i+1)*d[0]) ])
         #break
 
-#### MAIN
-if __name__ == "__main__":
-    sys.exit(main())
 

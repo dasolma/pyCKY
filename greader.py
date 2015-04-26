@@ -25,7 +25,6 @@ def parse_cnf(file):
 
     Gt = filter_dict(G, 1)
     GT = filter_dict(G, 2)
-    print GT
 
     return (R, G.keys(), find_terminals(G), Gt, GT, valid)
 
