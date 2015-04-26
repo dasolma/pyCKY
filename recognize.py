@@ -14,7 +14,7 @@ def main(args=None):
 
         if valid:
             #print (R, NT, T, Gt, GT)
-            if cky(R, NT, T, Gt, GT, args[2].split(" "), True):
+            if cky(R, NT, T, Gt, GT, args[2].split(" "), True, True):
                 print "\n %s is member of the language"%args[2]
             else:
                 print "\n %s is not member of the language"%args[2]
