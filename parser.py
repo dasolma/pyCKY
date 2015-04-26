@@ -21,15 +21,28 @@ def parse_cnf(file):
         print "Grammar invalid. Not found start symbol 'S'"
         valid = False
 
-    Gt = dict([(x,z) for x,y in G.iteritems() for z in y if len(z) == 1 ])
-    GT = dict([(x,z) for x,y in G.iteritems() for z in y if len(z) == 2 ])
 
+
+    Gt = filter_dict(G, 1)
+    GT = filter_dict(G, 2)
+    print GT
 
     return (R, G.keys(), find_terminals(G), Gt, GT, valid)
 
+def filter_dict(d, l):
+    r = {}
+    for k, values in d.iteritems():
+        r[k] = []
+        for v in values:
+            if len(v) == l: r[k] = r[k] + [v]
+
+        if len(r[k]) == 0: del r[k]
+
+    return r
+
 def parse_rule(line):
     rule = [x.strip() for x in line.split("->")]
-    print line
+    #print line
     if len(rule) != 2:
         print "Rule no valid: " + line
         l = None
