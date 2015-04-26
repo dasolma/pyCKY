@@ -1,5 +1,5 @@
-S -> U | V
-U -> TaU | TaT | UaT
-V -> TbV | TbT | VbT
-T -> aTbT | bTaT | ε
-
+S A
+S -> A B
+A -> A A
+A -> a
+B -> b
