@@ -6,7 +6,7 @@ from treelib import Node, Tree
 #### CKY ALGORITHM
 ###############################################################
 #Pseudocode from wikipedia
-def cky(Roots, NT, T, Gt, GT, words, show_table=False, gettree=False):
+def cky(Roots, NT, T, GT, GNT, words, show_table=False, gettree=False):
     #The input string s consist of n letters, a1... an.
     n = len(words)
     #The grammar contain r terminal and nonterminal symbols R1... Rr.
@@ -23,7 +23,7 @@ def cky(Roots, NT, T, Gt, GT, words, show_table=False, gettree=False):
     #For each i = 1 to n
     for i in range(0,n):
         # For each unit production Rj -> ai, set P[i,1,j] = true.
-        for R,A in Gt.iteritems():
+        for R,A in GT.iteritems():
             w = words[i]
             for a in A:
                 if words[i] == a[0]:
@@ -37,7 +37,7 @@ def cky(Roots, NT, T, Gt, GT, words, show_table=False, gettree=False):
             #For each k = 1 to i-1 -- Partition of span
             for k in range(1, i):
                 #For each production RA -> RB RC
-                for l,R in GT.iteritems():
+                for l,R in GNT.iteritems():
                     for r in R:
                         #if P[k,j,B] and P[i-k,j+k,C] then set P[i,j,A] = true
                         if P[k-1, j-1, NT.index(r[0])] == 1 and \
