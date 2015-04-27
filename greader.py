@@ -16,15 +16,15 @@ def parse_cnf(file):
                     G[l] = []
                 G[l] = G[l] + r
 
-    #check if we have the start simbol 'S'
-    if not 'S' in G.keys():
-        print "Grammar invalid. Not found start symbol 'S'"
-        valid = False
-
-
-
     Gt = filter_dict(G, 1)
     GT = filter_dict(G, 2)
+
+    #check if we have rules for the start symbols
+    for r in R:
+        if not r in GT.keys():
+            print "Grammar invalid. Not found rule for the start symbol '%s'"%r
+            valid = False
+
 
     return (R, G.keys(), find_terminals(G), Gt, GT, valid)
 

@@ -118,11 +118,10 @@ def create_trees(BP, Roots, NT, n):
     for r in Roots:
         j = NT.index(r)
         for bp in BP[n-1,0]:
+            print '\nTree'
             t = Tree()
             create_tree(t, bp, 0, 1)
             t.show(key=lambda x: x.identifier)
-
-            t2 = Tree(t, deep=True)
 
 
 def create_tree(t, bp, pid, nid):
