@@ -115,9 +115,8 @@ class BackPointer:
 ###############################################################
 def create_trees(BP, Roots, NT, n):
 
-    for r in Roots:
-        j = NT.index(r)
-        for bp in BP[n-1,0]:
+    for bp in BP[n-1,0]:
+        if bp.name in Roots:
             print '\nTree'
             t = Tree()
             create_tree(t, bp, 0, 1)

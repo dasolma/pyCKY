@@ -1,7 +1,4 @@
-S A
+S
 S -> A B
-A -> A A
-A -> A S
-B -> B B
-A -> a
-B -> b
+A -> A A | A S | a
+B -> B B | b
