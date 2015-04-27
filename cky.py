@@ -54,7 +54,7 @@ def cky(Roots, NT, T, Gt, GT, words, show_table=False, gettree=False):
     #   Then string is member of language
     #   Else string is not member of language
     if show_table: display_table(P, T, NT, words)
-    create_trees(BP, Roots, NT, n)
+    if gettree: create_trees(BP, Roots, NT, n)
 
     for r in Roots:
         j = NT.index(r)
