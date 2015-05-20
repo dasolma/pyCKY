@@ -58,9 +58,9 @@ def cky(Roots, NT, T, GT, GNT, words, show_table=False, gettree=False):
 
     for r in Roots:
         j = NT.index(r)
-        if P[n-1,0,j] == 1: return True
+        if P[n-1,0,j] == 1: return (True, P)
 
-    return False
+    return (False, P)
 
 def getBP(BP, NT):
     for bp in BP:

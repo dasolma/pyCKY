@@ -11,16 +11,16 @@ python recognizer.py <grammar file> <sentence> [--tree]
 
 ### greader.py
 
-That code file contain the functions to parse the grammar file. 
+This code file contains the functions to parse the grammar file. 
 The expected grammar is a CNF (Chomsky Normal Form) grammar. 
-That kind of grammar only have rule of the form:
+That kind of grammar only have rules of the form:
  
 ```
 A -> B C
 A -> a
 ```
 
-where A, B, C are non terminal symbols and a are terminal symbols. 
+where *A, B, C* are non terminal symbols and *a* are terminal symbols. 
 Note that all CFG (Context Free Grammar) can be convert in a CNF.
 
 An example of grammar file is:
@@ -41,7 +41,7 @@ Note: the first line must be indicate a list of root symbols.
 
 ### cky.py
 
-It is the cky implementation and the tree parser generation. 
+It is the **cky** implementation and the tree parser generator. 
 The principal function *cky* have the follow required parameters:
 
 - *Roots*: list of root non terminal symbols
@@ -131,7 +131,8 @@ S
  she eats a fish with a fork is member of the language
 ```
 
-In the last example is used a ambiguety grammar and show two tree parsers to recognize the sentence 'a + a - a':
+In the last example is used an ambiguety grammar and show two tree parsers to recognize 
+the sentence 'a + a - a':
 
 ```
 $ python recognize.py G3.g 'a + a - a' --tree
