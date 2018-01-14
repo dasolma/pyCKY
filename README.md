@@ -1,6 +1,9 @@
 # pyCKY
 Implementation of the CKY (Cocke-Kasami-Younger) algorithm
 
+## Installation
+`pip install -r requirements.txt`
+
 ## Usage
 
 ```
